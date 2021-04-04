@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Gymkhana Inventory 
+<a href="https://devlup-labs.github.io"><img src="https://img.shields.io/badge/Developed%20under-Winter%20of%20Code%2C%20DevlUp%20Labs-blue"/></a> ![](https://img.shields.io/badge/Status-Active%20development-blue) ![](https://img.shields.io/badge/Django-v3.1.7-orange) ![](https://img.shields.io/badge/Python-v3.8.5-green)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WebApp to manage Gymkhana Inventory
 
-## Available Scripts
+To make contributions to this repo, check out [contribution.md](contribution.md)
 
-In the project directory, you can run:
+## Project Setup
+1. Clone this repository.<br/>
+`git clone https://github.com/devlup-labs/gymkhana-inventory.git`
+2. Make sure Python and pip are installed else install it.
+3. Open up your IDE.
+4. Create a virtual environment and activate it. (For windows use following code)<br/>
+`python -m venv myenv`<br/>
+`myenv\Scripts\activate` (for windows)<br/>
+`source env/bin/activate` (for mac)
+5. copy the .env.example file to .env<br/>
+`cp .env.example .env`<br/>
+6. Go to backend folder and install all the required libraries in terminal.<br/>
+`cd backend`<br/>
+`pip install -r requirements.txt`
+7. Now migrate the models.<br/>
+`python manage.py makemigrations`<br/>
+`python manage.py migrate`
+8. Create the superuser(Admin).<br/>
+`python manage.py createsuperuser`
+9. Type in following command to run project locally now at http://127.0.0.1:8000/<br/>
+`python manage.py runserver`
 
-### `yarn start`
+## Built with
+- Django
+- React js
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Collaborators
+| Name              | Year          |Role   |
+| ----------------- |:-------------|:----------|
+|[Anshul Tilondiya](https://github.com/Anshultilondiya)|Pre-final Year|Mentor|
+|[Yashvi Ramanuj](https://github.com/YashviRamanuj)|Pre-final Year|Mentor|
+|[Hard Savani](https://github.com/HardSavani)|Sophomore|Develepor|
+|[Bhawna Chopra ](https://github.com/bhawnachopra2002)|Sophomore|Develepor|
+|[Darsh Patel](https://github.com/patel-16)|Sophomore|Develepor|
+|[Dhruv Kakadiya](https://github.com/dhruv-kakadiya)|Sophomore|Develepor|
+|[Suyash Agrnihotri](https://github.com/suyashagno3)|Sophomore|Develepor|
+|[Neeraj Anand](https://github.com/neeraj-2)|Sophomore|Develepor|
+|[Sarthak Raj Jindal](https://github.com/SarthakRajJindal)|Sophomore|Develepor|
+|[Akshay Jyani](https://github.com/AkshayJyani)|Sophomore|Develepor|
+|[Nimit](https://github.com/Nimit3-droid)|Sophomore|Develepor|
+|[Niharika Manhar](https://github.com/niharikamanhar)|Freshman|Develepor|
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
