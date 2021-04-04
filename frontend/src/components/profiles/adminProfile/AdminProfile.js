@@ -1,10 +1,39 @@
 import React, { useState } from "react";
 import Item from "./Item";
-import { Avatar, Box, Button, TextField, Grid } from "@material-ui/core";
+import { Box, Button, TextField, Grid } from "@material-ui/core";
 import ManageAccess from "./ManageAccess";
 import classes from "@material-ui/icons/Class";
+import Divider from "@material-ui/core/Divider";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: "#148FD3",
+    color: "#fff",
+    display: "flex",
+    width: "80%",
+  },
+  form: {
+    display: "inline",
+  },
+  heading: {
+    backgroundColor: "#148FD3",
+    color: "#fff",
+    textAlign: "center",
+  },
+  heading1: {
+    margin: theme.spacing(5),
+    marginLeft: theme.spacing(1),
+  },
+  editprofile: {
+    backgroundColor: "#148FD3",
+    color: "#fff",
+    marginLeft: theme.spacing(3),
+  },
+}));
 
 function AdminProfile() {
+  const classes = useStyles();
   const data = {
     items: [
       {
@@ -60,112 +89,109 @@ function AdminProfile() {
   };
   const [toggleManageAccess, setToggleManageAccess] = useState(false);
   return (
-    <Grid item container xs={12}>
-      <Grid className="adminHeader" item lg={3} sm={12}>
-        <div>
-          <Avatar />
-        </div>
-        <div>
-          <h2 style={{ margin: "3px" }}>Name: Club </h2>
-          <p style={{ margin: "3px" }}>Email: club@iitj.ac.in</p>
+    <div className="admin_profile">
+      <Grid item container xs={12}>
+        <Grid className="adminHeader" item lg={2} sm={12}>
+          <div className="edit_button">
+            <img
+              src="https://library.elementor.com/wp-content/uploads/2017/06/3-4.png"
+              alt="Images"
+            />
+
+            <div className="adminbody">
+              <h2 style={{ margin: "3px", textAlign: "center" }}>
+                Name: Club{" "}
+              </h2>
+              <p style={{ margin: "3px", textAlign: "center" }}>
+                Email: club@iitj.ac.in
+              </p>
+              <Box className="edit_button">
+                <Button variant="contained" className={classes.editprofile}>
+                  Edit Profile
+                </Button>
+              </Box>
+            </div>
+          </div>
+        </Grid>
+        <Divider orientation="vertical" flexItem className="divider" />
+
+        <Grid className="adminBody" item lg={9} sm={12}>
           <Box className="buttonAdmin">
-            <Button variant="contained" color="primary">
-              Edit Profile
-            </Button>
+            <Grid item container xs={12}>
+              <Grid item lg={3} sm={12}>
+                <Button
+                  onClick={() => setToggleManageAccess(!toggleManageAccess)}
+                  variant="contained"
+                  className={classes.root}
+                >
+                  Manage Access
+                </Button>
+              </Grid>
+              <Grid item lg={3} sm={12}>
+                <Button variant="contained" className={classes.root}>
+                  Add New Item
+                </Button>
+              </Grid>
+              <Grid item lg={3} sm={12}>
+                <Button variant="contained" className={classes.root}>
+                  View/Edit Inventory
+                </Button>
+              </Grid>
+              <Grid item lg={3} sm={12}>
+                <Button variant="contained" className={classes.root}>
+                  Invite
+                </Button>
+              </Grid>
+            </Grid>
           </Box>
-        </div>
-      </Grid>
-      <Grid className="adminBody" item lg={9} sm={12}>
-        <Box className="buttonAdmin">
-          <Button
-            onClick={() => setToggleManageAccess(!toggleManageAccess)}
-            variant="contained"
-            color="primary"
-          >
-            Manage Access
-          </Button>
-          <Button variant="contained" color="primary">
-            Add New Item
-          </Button>
-          <Button variant="contained" color="primary">
-            View/Edit Inventory
-          </Button>
-          <Button variant="contained" color="primary">
-            Invite
-          </Button>
-        </Box>
-        {toggleManageAccess ? (
-          <Box>
-            <form className={classes.root} noValidate autoComplete="on">
-              <TextField id="standard-basic" label="Name" />
-              <TextField id="filled-basic" label="Email" />
-              <TextField id="outlined-basic" label="Role" />
-              <Button
-                className={classes.root}
-                variant="contained"
-                style={{
-                  backgroundColor: "#3f72af",
-                  color: "white",
-                  margin: "8px",
-                }}
-              >
-                Add
-              </Button>
-            </form>
-            {data.manage.map((card, index) => {
-              return (
-                <ManageAccess
-                  key={index}
-                  name={card.name}
-                  email={card.email}
-                  role={card.role}
+          {toggleManageAccess ? (
+            <Box>
+              <form className={classes.form} noValidate autoComplete="on">
+                <TextField
+                  id="standard-basic"
+                  label="Name"
+                  style={{ marginLeft: "8px" }}
                 />
-              );
-            })}
-          </Box>
-        ) : null}
-
-        <Box className="adminBody">
-          <h2 className="adminTheme">Pending Requests</h2>
-          {data.items.map((card) => {
-            return (
-              <Item
-                key={card.itemId}
-                itemId={card.itemId}
-                itemName={card.itemName}
-                requestingDate={card.requestingDate}
-                dueDate={card.dueDate}
-                emailID={card.emailID}
-                requestaName={card.requestaName}
-                contact={card.contact}
-              />
-            );
-          })}
-          <Box>
-            <h2 className="adminTheme">Active Transaction</h2>
-            <Box className="buttonAdmin">
-              <Button variant="contained" color="primary">
-                Extension Request
-              </Button>
+                <TextField
+                  id="filled-basic"
+                  label="Email"
+                  style={{ marginLeft: "8px" }}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Role"
+                  style={{ marginLeft: "8px" }}
+                />
+                <Button
+                  variant="contained"
+                  style={{
+                    backgroundColor: "#148FD3",
+                    color: "white",
+                    margin: "8px",
+                  }}
+                >
+                  Add
+                </Button>
+              </form>
+              {data.manage.map((card, index) => {
+                return (
+                  <ManageAccess
+                    key={index}
+                    name={card.name}
+                    email={card.email}
+                    role={card.role}
+                  />
+                );
+              })}
             </Box>
-          </Box>
-          {data.items.map((card) => {
-            return (
-              <Item
-                key={card.itemId}
-                itemId={card.itemId}
-                itemName={card.itemName}
-                requestingDate={card.requestingDate}
-                dueDate={card.dueDate}
-                emailID={card.emailID}
-                requestaName={card.requestaName}
-                contact={card.contact}
-              />
-            );
-          })}
+          ) : null}
 
-          <h2 className="adminTheme">Transaction History</h2>
-          <Box>
+          <Box className="adminBody">
+            <div className={classes.heading1}>
+              <div className="heading">
+                <span className={classes.heading}>Pending Requests</span>
+              </div>
+            </div>
             {data.items.map((card) => {
               return (
                 <Item
@@ -180,10 +206,64 @@ function AdminProfile() {
                 />
               );
             })}
+            <Box>
+              <div>
+                <Grid item container>
+                  <div className={classes.heading1}>
+                    <div className="heading">
+                      <span className={classes.heading}>
+                        Active Transaction
+                      </span>
+                    </div>
+                  </div>
+                  <div className={classes.heading1}>
+                    <div className="heading">
+                      <span className={classes.heading}>Extension Request</span>
+                    </div>
+                  </div>
+                </Grid>
+              </div>
+            </Box>
+            {data.items.map((card) => {
+              return (
+                <Item
+                  key={card.itemId}
+                  itemId={card.itemId}
+                  itemName={card.itemName}
+                  requestingDate={card.requestingDate}
+                  dueDate={card.dueDate}
+                  emailID={card.emailID}
+                  requestaName={card.requestaName}
+                  contact={card.contact}
+                />
+              );
+            })}
+
+            <div className={classes.heading1}>
+              <div className="heading">
+                <span className={classes.heading}>Transaction History</span>
+              </div>
+            </div>
+            <Box>
+              {data.items.map((card) => {
+                return (
+                  <Item
+                    key={card.itemId}
+                    itemId={card.itemId}
+                    itemName={card.itemName}
+                    requestingDate={card.requestingDate}
+                    dueDate={card.dueDate}
+                    emailID={card.emailID}
+                    requestaName={card.requestaName}
+                    contact={card.contact}
+                  />
+                );
+              })}
+            </Box>
           </Box>
-        </Box>
+        </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
 }
 

@@ -110,7 +110,6 @@ function ItemsPage() {
                       <DialogActions>
                         <Button
                           onClick={handleClose}
-                          color="primary"
                           style={{ backgroundColor: "#CF1F1F", color: "#fff" }}
                         >
                           Cancel
@@ -176,7 +175,7 @@ function ItemsPage() {
         </Grid>
       </div>
       <div className="sep sep2">
-        <i>Write your query</i>
+        <i>Raise a query related to this equipment</i>
       </div>
       <ValidationTextFields />
     </div>
