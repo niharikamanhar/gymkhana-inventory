@@ -245,6 +245,8 @@
 }
 .adminHeader {
   display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
   color: black;
   padding: 4px;
 }
@@ -256,6 +258,7 @@
 
 .adminBody {
   justify-content: center;
+  background-color: #ffffff;
   padding: 10px;
 }
 
@@ -270,8 +273,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
-  margin-bottom: 50px;
-  border-radius: 1rem;
+  margin-bottom: 10px;
 }
 .cardContent {
   display: flex;
@@ -280,16 +282,15 @@
   justify-content: space-evenly;
   padding: 8px;
 }
-.button_admin {
-  display: flex;
-}
 
 .buttonAdmin {
+  justify-content: center;
+  display: flex;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 .buttonAdmin > .MuiButtonBase-root {
-  margin: 5px;
+  margin: 4px;
   /* background-color: #112d4e; */
 }
 
@@ -346,7 +347,7 @@
 
 .user_profile_page .user_profile .edit_info_btn {
   color: #fff;
-  background-color: #148fd3;
+  background-color: #3f72af;
   width: 25%;
   display: flex;
   font-size: 1rem;
@@ -374,7 +375,7 @@
 
 .user_profile_page .user_transactions .user_trans_heading span {
   color: #fff;
-  background-color: #148fd3;
+  background-color: #3f72af;
   font-size: 1.3rem;
   padding: 0.8rem 1.6rem;
   border-radius: 1rem;
